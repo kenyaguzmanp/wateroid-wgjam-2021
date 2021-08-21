@@ -3,7 +3,7 @@
 kaboom({
   global: true,
   width: 1920, // width of canvas
-  height: 6215, // height of canvas
+  height: 9000, // height of canvas
   // fullscreen: true,
   // scale: 1,
   debug: true,
@@ -14,6 +14,13 @@ kaboom({
 const MOVE_SPEED = 1200
 const SLICER_SPEED = 100
 const SKELETOR_SPEED = 60
+
+// Window limits
+const WINDOW_HEIGHT = window.innerHeight;
+const WINDOW_WIDTH = window.innerWidth;
+
+// console.log('%c window height','color:yellow',WINDOW_HEIGHT)
+// console.log('%c window width','color:yellow',WINDOW_WIDTH)
 
 // Game Logic
 loadRoot('https://i.imgur.com/')
@@ -38,7 +45,7 @@ loadSprite('skeletor', 'LdHzUtC.png')
 loadSprite('kaboom', 'BhA4Dof.png')
 loadSprite('stairs', 'lrq7j3g.png')
 loadSprite('bg', 'ovRrL4m.png')
-loadSprite('bg-l-4', 'sLdr8sl.jpg')
+loadSprite('bg-l-4', 'h7xbSWa.jpg') // [img]https://i.imgur.com/h7xbSWa.jpg[/img]
 loadSprite('dive-going-right', 'Oi4jmra.png') // [img]https://i.imgur.com/Oi4jmra.png[/img]
 loadSprite('dive-going-left', '9ws0EQK.png') // [img]https://i.imgur.com/9ws0EQK.png[/img]
 loadSprite('dive-going-down', 'XSGm2k0.png') // [img]https://i.imgur.com/XSGm2k0.png[/img]
@@ -88,8 +95,8 @@ scene('game', ({ level, score }) => {
       '                                           ',
       '                                           ',
       ' aaa                                       ',
-      'a   aa                                      ',
-      'a    aa                                     ',
+      'a   aa                                     ',
+      'a    aa                                    ',
       '                                           ',
       '                                           ',
       '                                           ',
@@ -115,7 +122,7 @@ scene('game', ({ level, score }) => {
       '    (                                      ',
       '   *                                       ',
       '                                           ',
-      'xdd)^d)ddz                            z    ',
+      'xdd)^^^^^d)ddz                            z',
     ],
     [
       'yccc^ccccw',
@@ -177,6 +184,8 @@ scene('game', ({ level, score }) => {
   ])
 
   player.action(() => {
+    // TODO: handle this
+    // camPos(player.pos);
     player.resolve()
   })
 
@@ -200,15 +209,27 @@ scene('game', ({ level, score }) => {
   })
 
   keyDown('up', () => {
+    console.log('%c player','color:yellow',player.pos)
     player.changeSprite('dive-going-up')
     player.move(0, -MOVE_SPEED)
     player.dir = vec2(0, -1)
+    // TODO: modify
+    // if (player.pos.y >= WINDOW_HEIGHT) {
+    //   console.log('%c here up','color:green')
+    //   window.scrollTo(window.scrollX, window.scrollY + 20);
+    // }
   })
 
   keyDown('down', () => {
+    // console.log('%c player','color:pink',player.pos.y)
     player.changeSprite('dive-going-down')
     player.move(0, MOVE_SPEED)
     player.dir = vec2(0, 1)
+    // TODO: modify
+    if (player.pos.y >= WINDOW_HEIGHT) {
+      console.log('%c here down','color:green')
+      window.scrollTo(window.scrollX, window.scrollY + 20);
+    }
   })
 
   function spawnKaboom(p) {
