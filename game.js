@@ -11,7 +11,7 @@ kaboom({
 })
 
 // Speeds
-const MOVE_SPEED = 120
+const MOVE_SPEED = 1200
 const SLICER_SPEED = 100
 const SKELETOR_SPEED = 60
 
@@ -39,6 +39,12 @@ loadSprite('kaboom', 'BhA4Dof.png')
 loadSprite('stairs', 'lrq7j3g.png')
 loadSprite('bg', 'ovRrL4m.png')
 loadSprite('bg-l-4', 'sLdr8sl.jpg')
+loadSprite('dive-going-right', 'Oi4jmra.png') // [img]https://i.imgur.com/Oi4jmra.png[/img]
+loadSprite('dive-going-left', '9ws0EQK.png') // [img]https://i.imgur.com/9ws0EQK.png[/img]
+loadSprite('dive-going-down', 'XSGm2k0.png') // [img]https://i.imgur.com/XSGm2k0.png[/img]
+loadSprite('dive-going-up', 'VZMfPn6.png') // [img]https://i.imgur.com/VZMfPn6.png[/img]
+loadSprite('shark', 'A8YZA2r.png') // [img]https://i.imgur.com/A8YZA2r.png[/img]
+
 
 scene('game', ({ level, score }) => {
   // layers(['bg', 'obj', 'ui'], 'obj')
@@ -95,7 +101,7 @@ scene('game', ({ level, score }) => {
       '                                           ',
       '                                           ',
       '                                           ',
-      '                                           ',
+      '                        #                  ',
       '                                           ',
       '                                           ',
       '                                           ',
@@ -142,6 +148,7 @@ scene('game', ({ level, score }) => {
     '}': [sprite('skeletor'), 'dangerous', 'skeletor', { dir: -1, timer: 0 }],
     ')': [sprite('lanterns'), solid()],
     '(': [sprite('fire-pot'), solid()],
+    '#': [sprite('shark'), 'dangerous', 'shark', { dir: -1, timer: 0 }],
   }
   addLevel(maps[level], levelCfg)
 
@@ -161,7 +168,7 @@ scene('game', ({ level, score }) => {
   add([text('level ' + parseInt(level + 1)), pos(800, 465), scale(2)])
 
   const player = add([
-    sprite('link-going-right'),
+    sprite('dive-going-right'),
     pos(100, 300),
     {
       // right by default
@@ -181,25 +188,25 @@ scene('game', ({ level, score }) => {
   })
 
   keyDown('left', () => {
-    player.changeSprite('link-going-left')
+    player.changeSprite('dive-going-left')
     player.move(-MOVE_SPEED, 0)
     player.dir = vec2(-1, 0)
   })
 
   keyDown('right', () => {
-    player.changeSprite('link-going-right')
+    player.changeSprite('dive-going-right')
     player.move(MOVE_SPEED, 0)
     player.dir = vec2(1, 0)
   })
 
   keyDown('up', () => {
-    player.changeSprite('link-going-up')
+    player.changeSprite('dive-going-up')
     player.move(0, -MOVE_SPEED)
     player.dir = vec2(0, -1)
   })
 
   keyDown('down', () => {
-    player.changeSprite('link-going-down')
+    player.changeSprite('dive-going-down')
     player.move(0, MOVE_SPEED)
     player.dir = vec2(0, 1)
   })
@@ -235,6 +242,15 @@ scene('game', ({ level, score }) => {
 
   collides('slicer', 'wall', (s) => {
     s.dir = -s.dir
+  })
+
+  action('shark', (s) => {
+    s.move(0, s.dir * SKELETOR_SPEED)
+    s.timer -= dt()
+    if (s.timer <= 0) {
+      s.dir = -s.dir
+      s.timer = rand(5)
+    }
   })
 
   action('skeletor', (s) => {
