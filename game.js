@@ -2,8 +2,10 @@
 
 kaboom({
   global: true,
-  fullscreen: true,
-  scale: 1,
+  width: 1920, // width of canvas
+  height: 6215, // height of canvas
+  // fullscreen: true,
+  // scale: 1,
   debug: true,
   clearColor: [0, 0, 1, 1],
 })
@@ -36,24 +38,81 @@ loadSprite('skeletor', 'LdHzUtC.png')
 loadSprite('kaboom', 'BhA4Dof.png')
 loadSprite('stairs', 'lrq7j3g.png')
 loadSprite('bg', 'ovRrL4m.png')
+loadSprite('bg-l-4', 'sLdr8sl.jpg')
 
 scene('game', ({ level, score }) => {
-  layers(['bg', 'obj', 'ui'], 'obj')
+  // layers(['bg', 'obj', 'ui'], 'obj')
+  layers(['bg-l-4', 'obj', 'ui'], 'obj')
+
+  // map original
+  // const maps = [
+  //   [
+  //     'ycc)cccccw',
+  //     'a        b',
+  //     'a        b',
+  //     'a        b',
+  //     'a        b',
+  //     'a        b',
+  //     'a      * b',
+  //     'a    (   b',
+  //     '%        b',
+  //     'a    (   b',
+  //     'a   *    b',
+  //     'a        b',
+  //     'xdd)^d)ddz',
+  //   ],
+  //   [
+  //     'yccc^ccccw',
+  //     'a        b',
+  //     ')        )',
+  //     'a        b',
+  //     'a        b',
+  //     'a    $   b',
+  //     ')   }    )',
+  //     'a        b',
+  //     'xddddddddz',
+  //   ],
+  // ]
 
   const maps = [
     [
-      'ycc)cc^ccw',
-      'a        b',
-      'a      * b',
-      'a    (   b',
-      '%        b',
-      'a    (   b',
-      'a   *    b',
-      'a        b',
-      'xdd)dd)ddz',
+      '                                     a     ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      ' aaa                                       ',
+      'a   aa                                      ',
+      'a    aa                                     ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '                                           ',
+      '      *                                    ',
+      '    (                                      ',
+      '%                                          ',
+      '    (                                      ',
+      '   *                                       ',
+      '                                           ',
+      'xdd)^d)ddz                            z    ',
     ],
     [
-      'yccccccccw',
+      'yccc^ccccw',
       'a        b',
       ')        )',
       'a        b',
@@ -86,11 +145,12 @@ scene('game', ({ level, score }) => {
   }
   addLevel(maps[level], levelCfg)
 
-  add([sprite('bg'), layer('bg')])
+  // add([sprite('bg'), layer('bg')])
+  add([sprite('bg-l-4'), layer('bg-l-4')])
 
   const scoreLabel = add([
     text('0'),
-    pos(400, 450),
+    pos(800, 450),
     layer('ui'),
     {
       value: score,
@@ -98,11 +158,11 @@ scene('game', ({ level, score }) => {
     scale(2),
   ])
 
-  add([text('level ' + parseInt(level + 1)), pos(400, 465), scale(2)])
+  add([text('level ' + parseInt(level + 1)), pos(800, 465), scale(2)])
 
   const player = add([
     sprite('link-going-right'),
-    pos(5, 190),
+    pos(100, 300),
     {
       // right by default
       dir: vec2(1, 0),
