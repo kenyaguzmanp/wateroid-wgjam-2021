@@ -23,106 +23,233 @@ const WINDOW_WIDTH = window.innerWidth;
 // console.log('%c window width','color:yellow',WINDOW_WIDTH)
 
 // Game Logic
-loadRoot('https://i.imgur.com/')
-loadSprite('link-going-left', 'Q7lv1fk.png')
-loadSprite('link-going-right', '65ms4cu.png')
-loadSprite('link-going-down', 'OZMpz1v.png')
-loadSprite('link-going-up', 'a6Li3A3.png')
-loadSprite('left-wall', 'HBxw7Uw.png')
-loadSprite('top-wall', 'xw8MjU0.png')
-loadSprite('bottom-wall', 'GlFwnCQ.png')
-loadSprite('right-wall', 'AwMtCdt.png')
-loadSprite('bottom-left-wall', 'Or7Orfd.png')
-loadSprite('bottom-right-wall', 'bOwTZIa.png')
-loadSprite('top-left-wall', 'ACVEa5r.png')
-loadSprite('top-right-wall', '3HcxM0U.jpg')
-loadSprite('top-door', 'oAGk5w7.png')
-loadSprite('fire-pot', 'HmH9JfK.png')
-loadSprite('left-door', 'WkgOdeO.png')
-loadSprite('lanterns', 'dxV3Qxo.png')
-loadSprite('slicer', 'myr3VE3.png')
-loadSprite('skeletor', 'LdHzUtC.png')
-loadSprite('kaboom', 'BhA4Dof.png')
-loadSprite('stairs', 'lrq7j3g.png')
-loadSprite('bg', 'ovRrL4m.png')
-loadSprite('bg-l-4', 'h7xbSWa.jpg') // [img]https://i.imgur.com/h7xbSWa.jpg[/img]
-loadSprite('dive-going-right', 'Oi4jmra.png') // [img]https://i.imgur.com/Oi4jmra.png[/img]
-loadSprite('dive-going-left', '9ws0EQK.png') // [img]https://i.imgur.com/9ws0EQK.png[/img]
-loadSprite('dive-going-down', 'XSGm2k0.png') // [img]https://i.imgur.com/XSGm2k0.png[/img]
-loadSprite('dive-going-up', 'VZMfPn6.png') // [img]https://i.imgur.com/VZMfPn6.png[/img]
-loadSprite('shark', 'A8YZA2r.png') // [img]https://i.imgur.com/A8YZA2r.png[/img]
+// loadRoot('https://i.imgur.com/')
+// loadSprite('left-wall', 'HBxw7Uw.png')
+// loadSprite('top-wall', 'xw8MjU0.png')
+// loadSprite('bottom-wall', 'GlFwnCQ.png')
+// loadSprite('right-wall', 'AwMtCdt.png')
+// loadSprite('bottom-left-wall', 'Or7Orfd.png')
+// loadSprite('bottom-right-wall', 'bOwTZIa.png')
+// loadSprite('top-left-wall', 'ACVEa5r.png')
+// loadSprite('top-right-wall', '3HcxM0U.jpg')
+// loadSprite('top-door', 'oAGk5w7.png')
+// loadSprite('fire-pot', 'HmH9JfK.png')
+// loadSprite('left-door', 'WkgOdeO.png')
+// loadSprite('lanterns', 'dxV3Qxo.png')
+// loadSprite('slicer', 'myr3VE3.png')
+// loadSprite('skeletor', 'LdHzUtC.png')
+// loadSprite('kaboom', 'BhA4Dof.png')
+// loadSprite('stairs', 'lrq7j3g.png')
+// loadSprite('bg', 'ovRrL4m.png')
+// loadSprite('bg-l-4', 'h7xbSWa.jpg') // [img]https://i.imgur.com/h7xbSWa.jpg[/img]
+// loadSprite('dive-going-right', 'Oi4jmra.png') // [img]https://i.imgur.com/Oi4jmra.png[/img]
+// loadSprite('dive-going-left', '9ws0EQK.png') // [img]https://i.imgur.com/9ws0EQK.png[/img]
+// loadSprite('dive-going-down', 'XSGm2k0.png') // [img]https://i.imgur.com/XSGm2k0.png[/img]
+// loadSprite('dive-going-up', 'VZMfPn6.png') // [img]https://i.imgur.com/VZMfPn6.png[/img]
+// loadSprite('shark', 'A8YZA2r.png') // [img]https://i.imgur.com/A8YZA2r.png[/img]
+// loadSprite('bot-turn-off', 'xxGt2Ce.png') // [img]https://i.imgur.com/xxGt2Ce.png[/img]
+// loadSprite('bot-turn-on', 'Tjk1i96.png') // [img]https://i.imgur.com/Tjk1i96.png[/img]
+// loadSprite('kraken-open-eye', 'Tjk1i96.png') // 
+// loadSprite('kraken-closed-eye', 'Tjk1i96.png') // 
+
+
+loadSprite('left-wall', './images/sprites/25 - rfDoaa1.png')
+loadSprite('top-wall', './images/sprites/24 - QA257Bj.png')
+loadSprite('bottom-wall', './images/sprites/24 - QA257Bj.png')
+loadSprite('right-wall', './images/sprites/24 - QA257Bj.png')
+loadSprite('right-wall', './images/sprites/26 - SmHhgUn.png')
+loadSprite('bottom-left-wall', './images/sprites/26 - SmHhgUn.png')
+loadSprite('bottom-right-wall', './images/sprites/26 - SmHhgUn.png')
+loadSprite('top-left-wall', './images/sprites/26 - SmHhgUn.png')
+loadSprite('top-right-wall', './images/sprites/26 - SmHhgUn.png')
+loadSprite('top-door', './images/sprites/21 - U9nre4n.png')
+loadSprite('fire-pot', './images/sprites/10 - wiSiY09.png')
+loadSprite('left-door', './images/sprites/21 - U9nre4n.png')
+loadSprite('lanterns', './images/sprites/10 - wiSiY09.png')
+loadSprite('slicer', './images/sprites/18 - c6JFi5Z.png')
+loadSprite('skeletor', './images/sprites/17 - Ei1VnX8.png')
+loadSprite('kaboom', './images/sprites/9 - o9WizfI.png')
+loadSprite('stairs', './images/sprites/19 - VghkL08.png')
+loadSprite('bg-l-4', './images/sprites/bg-level-4.png') // [img]https://i.imgur.com/h7xbSWa.jpg[/img]
+loadSprite('dive-going-right', './images/sprites/dive-going-right.png') // [img]https://i.imgur.com/Oi4jmra.png[/img]
+loadSprite('dive-going-left', './images/sprites/dive-going-left.png') // [img]https://i.imgur.com/9ws0EQK.png[/img]
+loadSprite('dive-going-down', './images/sprites/dive-going-down.png') // [img]https://i.imgur.com/XSGm2k0.png[/img]
+loadSprite('dive-going-up', './images/sprites/dive-going-up.png') // [img]https://i.imgur.com/VZMfPn6.png[/img]
+loadSprite('shark', './images/sprites/shark.png') // [img]https://i.imgur.com/A8YZA2r.png[/img]
+loadSprite('bot-turn-off', './images/sprites/bot-turn-off.png') // [img]https://i.imgur.com/xxGt2Ce.png[/img]
+loadSprite('bot-turn-on', './images/sprites/bot-turn-on.png') // [img]https://i.imgur.com/Tjk1i96.png[/img]
+loadSprite('kraken-open-eye', './images/sprites/kraken-open-eye.png') // 
+loadSprite('kraken-closed-eye', './images/sprites/kraken-closed-eye.png') //
+
 
 
 scene('game', ({ level, score }) => {
   // layers(['bg', 'obj', 'ui'], 'obj')
   layers(['bg-l-4', 'obj', 'ui'], 'obj')
 
-  // map original
-  // const maps = [
-  //   [
-  //     'ycc)cccccw',
-  //     'a        b',
-  //     'a        b',
-  //     'a        b',
-  //     'a        b',
-  //     'a        b',
-  //     'a      * b',
-  //     'a    (   b',
-  //     '%        b',
-  //     'a    (   b',
-  //     'a   *    b',
-  //     'a        b',
-  //     'xdd)^d)ddz',
-  //   ],
-  //   [
-  //     'yccc^ccccw',
-  //     'a        b',
-  //     ')        )',
-  //     'a        b',
-  //     'a        b',
-  //     'a    $   b',
-  //     ')   }    )',
-  //     'a        b',
-  //     'xddddddddz',
-  //   ],
-  // ]
-
   const maps = [
     [
-      '                                     a     ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      ' aaa                                       ',
-      'a   aa                                     ',
-      'a    aa                                    ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      '                        #                  ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      '                                           ',
-      '      *                                    ',
-      '    (                                      ',
-      '%                                          ',
-      '    (                                      ',
-      '   *                                       ',
-      '                                           ',
-      'xdd)^^^^^d)ddz                            z',
+      '                                     a b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      ' aaa                                   b',
+      'a   aa                                 b',
+      'a    aa                                b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                |      b',
+      '                                       b',
+      '                             |    |    b',
+      '    /                                  b',
+      '                                 |     b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                        #              b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '      *                                b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '      *                                b',
+      '    (                                  b',
+      '%                                      b',
+      '    (                                  b',
+      '   *                                   b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      '                                       b',
+      'xdd)^^^^^d)ddz            §            b',
     ],
     [
       'yccc^ccccw',
@@ -156,6 +283,9 @@ scene('game', ({ level, score }) => {
     ')': [sprite('lanterns'), solid()],
     '(': [sprite('fire-pot'), solid()],
     '#': [sprite('shark'), 'dangerous', 'shark', { dir: -1, timer: 0 }],
+    '|': [sprite('bot-turn-on'), solid(), 'bot', { dir: -1, timer: 0 }],
+    '/': [sprite('bot-turn-off'), solid(), 'bot', { dir: -1, timer: 0 }],
+    '§': [sprite('kraken-open-eye'), solid(), 'kraken'],
   }
   addLevel(maps[level], levelCfg)
 
@@ -228,7 +358,7 @@ scene('game', ({ level, score }) => {
     // TODO: modify
     if (player.pos.y >= WINDOW_HEIGHT) {
       console.log('%c here down','color:green')
-      window.scrollTo(window.scrollX, window.scrollY + 20);
+      // window.scrollTo(window.scrollX, window.scrollY + 20);
     }
   })
 
