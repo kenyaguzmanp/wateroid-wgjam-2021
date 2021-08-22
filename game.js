@@ -82,12 +82,12 @@ loadSprite('bot-turn-on', './images/sprites/bot-turn-on.png') // [img]https://i.
 loadSprite('kraken-open-eye', './images/sprites/kraken-open-eye.png') // 
 loadSprite('kraken-closed-eye', './images/sprites/kraken-closed-eye.png') //
 loadSprite('kaboom', './images/sprites/bag.png') //
+loadSprite('rock-bg-l-4', './images/sprites/rock-bg-level-4.png');
 
 
 
 scene('game', ({ level, score }) => {
-  // layers(['bg', 'obj', 'ui'], 'obj')
-  layers(['bg-l-4', 'obj', 'ui'], 'obj')
+  layers(['bg-l-4','rock-bg-l-4', 'obj', 'ui'], 'obj')
 
   // TODO: VERIFY spaces some bigs happen
   const maps = [
@@ -295,6 +295,7 @@ scene('game', ({ level, score }) => {
 
   // add([sprite('bg'), layer('bg')])
   add([sprite('bg-l-4'), layer('bg-l-4')])
+  add([sprite('rock-bg-l-4'), layer('rock-bg-l-4')])
 
   const scoreLabel = add([
     text('0'),
@@ -348,10 +349,10 @@ scene('game', ({ level, score }) => {
     player.move(0, -MOVE_SPEED)
     player.dir = vec2(0, -1)
     // TODO: modify
-    // if (player.pos.y >= WINDOW_HEIGHT) {
-    //   console.log('%c here up','color:green')
-    //   window.scrollTo(window.scrollX, window.scrollY + 20);
-    // }
+    if (player.pos.y >= WINDOW_HEIGHT) {
+      console.log('%c here up','color:green')
+      window.scrollTo(window.scrollX, window.scrollY - 20);
+    }
   })
 
   keyDown('down', () => {
@@ -362,7 +363,7 @@ scene('game', ({ level, score }) => {
     // TODO: modify
     if (player.pos.y >= WINDOW_HEIGHT) {
       console.log('%c here down','color:green')
-      // window.scrollTo(window.scrollX, window.scrollY + 20);
+      window.scrollTo(window.scrollX, window.scrollY + 20);
     }
   })
 
