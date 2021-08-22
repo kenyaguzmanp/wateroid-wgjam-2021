@@ -352,9 +352,12 @@ scene('game', ({ level, score }) => {
   })
 
   player.overlaps('next-level', () => {
+    // go('game', {
+    //   level: (level + 1) % maps.length,
+    //   score: scoreLabel.value,
+    // })
     go('game', {
       level: (level + 1) % maps.length,
-      score: scoreLabel.value,
     })
   })
 
@@ -422,8 +425,8 @@ scene('game', ({ level, score }) => {
       { dir: -0.2, timer: 0 }
     ]);
     destroy(d)
-    scoreLabel.value++
-    scoreLabel.text = scoreLabel.value
+    // scoreLabel.value++
+    // scoreLabel.text = scoreLabel.value
   })
 
   collides('kaboom', 'skeletor', (k,s) => {
@@ -432,8 +435,8 @@ scene('game', ({ level, score }) => {
       destroy(k)
     })
     destroy(s)
-    scoreLabel.value++
-    scoreLabel.text = scoreLabel.value
+    // scoreLabel.value++
+    // scoreLabel.text = scoreLabel.value
   })
 
   action('slicer', (s) => {
@@ -479,7 +482,8 @@ scene('game', ({ level, score }) => {
   })
 
   player.overlaps('dangerous', () => {
-    go('lose', { score: scoreLabel.value })
+    // go('Sorry, you lose', { score: scoreLabel.value })
+    go('Sorry, you lose')
   })
 })
 
