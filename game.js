@@ -213,7 +213,7 @@ scene('game', ({ level, score }) => {
       'i                        i             i',
       'i                        i             i',
       'i                        i             i',
-      'i                        i             i',
+      'i                     #  i             i',
       'i                        i             i',
       'i                        i             i',
       'i                        i             i',
@@ -287,8 +287,8 @@ scene('game', ({ level, score }) => {
     ')': [sprite('lanterns'), solid()],
     '(': [sprite('fire-pot'), solid()],
     '#': [sprite('shark'), 'dangerous', 'shark', { dir: -1, timer: 0 }],
-    '|': [sprite('bot-turn-on'), solid(), 'bot', { dir: -1, timer: 0 }],
-    '/': [sprite('bot-turn-off'), solid(), 'bot', { dir: -1, timer: 0 }],
+    '|': [sprite('bot-turn-on'), solid(), 'bot-on', { dir: -0.2, timer: 0 }],
+    '/': [sprite('bot-turn-off'), solid(), 'bot-off', { dir: -1, timer: 0 }],
     '§': [sprite('kraken-open-eye'), solid(), 'kraken'],
   }
   addLevel(maps[level], levelCfg)
@@ -306,7 +306,7 @@ scene('game', ({ level, score }) => {
     scale(2),
   ])
 
-  add([text('level ' + parseInt(level + 1)), pos(800, 465), scale(2)])
+  add([text('level ' + parseInt(level + 1)), pos(800, 365), scale(2)])
 
   const player = add([
     sprite('dive-going-right'),
@@ -383,6 +383,21 @@ scene('game', ({ level, score }) => {
     destroy(d)
   })
 
+  player.collides('bot-off', (d) => {
+    // TODO: See cam gesture for something more subtle
+    camShake(2)
+    add([
+      sprite('bot-turn-on'),
+      pos(d.pos),
+      solid(),
+      "bot-on",
+      { dir: -0.2, timer: 0 }
+    ]);
+    destroy(d)
+    scoreLabel.value++
+    scoreLabel.text = scoreLabel.value
+  })
+
   collides('kaboom', 'skeletor', (k,s) => {
     camShake(4)
     wait(1, () => {
@@ -402,6 +417,15 @@ scene('game', ({ level, score }) => {
   })
 
   action('shark', (s) => {
+    s.move(0, s.dir * SKELETOR_SPEED)
+    s.timer -= dt()
+    if (s.timer <= 0) {
+      s.dir = -s.dir
+      s.timer = rand(5)
+    }
+  })
+
+  action('bot-on', (s) => {
     s.move(0, s.dir * SKELETOR_SPEED)
     s.timer -= dt()
     if (s.timer <= 0) {
