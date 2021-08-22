@@ -83,6 +83,8 @@ loadSprite('kraken-open-eye', './images/sprites/kraken-open-eye.png') //
 loadSprite('kraken-closed-eye', './images/sprites/kraken-closed-eye.png') //
 loadSprite('kaboom', './images/sprites/bag.png') //
 loadSprite('rock-bg-l-4', './images/sprites/rock-bg-level-4.png');
+loadSprite('shark-going-left', './images/sprites/shark-going-left.png');
+loadSprite('shark-going-right', './images/sprites/shark-going-right.png');
 
 
 
@@ -95,11 +97,63 @@ scene('game', ({ level, score }) => {
       'i                        i             i',
       'i                        i             i',
       'i                        i             i',
-      'i  aaa                   i             i',
-      'i     a                  i             i',
-      'i aaa                    i             i',
-      'ia   aa                  i             i',
-      'ia    aa                 i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i      -      i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i        +               i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
+      'i                        i             i',
       'i                        i             i',
       'i                        i             i',
       'i                        i             i',
@@ -145,6 +199,7 @@ scene('game', ({ level, score }) => {
       'i                        i             i',
       'i                        i             i',
       'i                        i             i',
+      'i                        i        -    i',
       'i                        i             i',
       'i                        i             i',
       'i                        i             i',
@@ -160,6 +215,7 @@ scene('game', ({ level, score }) => {
       'i                        i             i',
       'i                        i             i',
       'i                        i             i',
+      '#                        i             i',
       'i                        i             i',
       'i                        i             i',
       'i                        i             i',
@@ -176,7 +232,6 @@ scene('game', ({ level, score }) => {
       'i                        i             i',
       'i                        i             i',
       'i                        i             i',
-      'i      *                 i             i',
       'i                        i             i',
       'i                        i             i',
       'i                        i             i',
@@ -195,11 +250,6 @@ scene('game', ({ level, score }) => {
       'i                        i             i',
       'i                        i             i',
       'i                        i             i',
-      'i      *                 i             i',
-      'i    (                   i             i',
-      'i%                       i             i',
-      'i    (                   i             i',
-      'i   *                    i             i',
       'i                        i             i',
       'i                        i             i',
       'i                        i             i',
@@ -213,7 +263,6 @@ scene('game', ({ level, score }) => {
       'i                        i             i',
       'i                        i             i',
       'i                        i             i',
-      'i                     #  i             i',
       'i                        i             i',
       'i                        i             i',
       'i                        i             i',
@@ -226,33 +275,7 @@ scene('game', ({ level, score }) => {
       'i                        i             i',
       'i                        i             i',
       'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'i                        i             i',
-      'ixdd)^^^^^d)ddz          i §           i',
+      'iiiiiiiiiiiiiii          i §           i',
     ],
     [
       'yccc^ccccw',
@@ -283,6 +306,8 @@ scene('game', ({ level, score }) => {
     '^': [sprite('top-door'), 'next-level'],
     $: [sprite('stairs'), 'next-level'],
     '*': [sprite('slicer'), 'slicer', { dir: -1 }, 'dangerous'],
+    '-': [sprite('shark-going-left'), 'slicer', { dir: -1 }, 'dangerous'],
+    '+': [sprite('shark-going-right'), 'slicer', { dir: 1 }, 'dangerous'],
     '}': [sprite('skeletor'), 'dangerous', 'skeletor', { dir: -1, timer: 0 }],
     ')': [sprite('lanterns'), solid()],
     '(': [sprite('fire-pot'), solid()],
@@ -297,17 +322,19 @@ scene('game', ({ level, score }) => {
   add([sprite('bg-l-4'), layer('bg-l-4')])
   add([sprite('rock-bg-l-4'), layer('rock-bg-l-4')])
 
-  const scoreLabel = add([
-    text('0'),
-    pos(800, 450),
-    layer('ui'),
-    {
-      value: score,
-    },
-    scale(2),
-  ])
+  // const scoreLabel = add([
+  //   text('0'),
+  //   pos(800, 450),
+  //   layer('ui'),
+  //   {
+  //     value: score,
+  //   },
+  //   scale(2),
+  // ])
 
-  add([text('level ' + parseInt(level + 1)), pos(800, 365), scale(2)])
+  // TODO: MODIFY
+  // add([text('level ' + parseInt(level + 1)), pos(800, 365), scale(2)])
+  add([text('level 4'), pos(800, 365), scale(2)])
 
   const player = add([
     sprite('dive-going-right'),
@@ -413,7 +440,10 @@ scene('game', ({ level, score }) => {
     s.move(s.dir * SLICER_SPEED, 0)
   })
 
+  // TODO: Watch this
   collides('slicer', 'wall', (s) => {
+    console.log('%c slicer','color:yellow',s)
+    // s.changeSprite('shark-going-right')
     s.dir = -s.dir
   })
 
