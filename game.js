@@ -49,8 +49,9 @@ const WINDOW_WIDTH = window.innerWidth;
 // loadSprite('shark', 'A8YZA2r.png') // [img]https://i.imgur.com/A8YZA2r.png[/img]
 // loadSprite('bot-turn-off', 'xxGt2Ce.png') // [img]https://i.imgur.com/xxGt2Ce.png[/img]
 // loadSprite('bot-turn-on', 'Tjk1i96.png') // [img]https://i.imgur.com/Tjk1i96.png[/img]
-// loadSprite('kraken-open-eye', 'Tjk1i96.png') // 
-// loadSprite('kraken-closed-eye', 'Tjk1i96.png') // 
+// loadSprite('kraken-open-eye', 'OkPW89Z.png') // [img]https://i.imgur.com/OkPW89Z.png[/img]
+// loadSprite('kraken-closed-eye', 'MPKanq6.png') // [img]https://i.imgur.com/MPKanq6.png[/img]
+// loadSprite('bag', 'v5elL0k.png') // [img]https://i.imgur.com/v5elL0k.png[/img]
 
 
 loadSprite('left-wall', './images/sprites/25 - rfDoaa1.png')
@@ -68,7 +69,7 @@ loadSprite('left-door', './images/sprites/21 - U9nre4n.png')
 loadSprite('lanterns', './images/sprites/10 - wiSiY09.png')
 loadSprite('slicer', './images/sprites/18 - c6JFi5Z.png')
 loadSprite('skeletor', './images/sprites/17 - Ei1VnX8.png')
-loadSprite('kaboom', './images/sprites/9 - o9WizfI.png')
+// loadSprite('kaboom', './images/sprites/9 - o9WizfI.png')
 loadSprite('stairs', './images/sprites/19 - VghkL08.png')
 loadSprite('bg-l-4', './images/sprites/bg-level-4.png') // [img]https://i.imgur.com/h7xbSWa.jpg[/img]
 loadSprite('dive-going-right', './images/sprites/dive-going-right.png') // [img]https://i.imgur.com/Oi4jmra.png[/img]
@@ -80,6 +81,7 @@ loadSprite('bot-turn-off', './images/sprites/bot-turn-off.png') // [img]https://
 loadSprite('bot-turn-on', './images/sprites/bot-turn-on.png') // [img]https://i.imgur.com/Tjk1i96.png[/img]
 loadSprite('kraken-open-eye', './images/sprites/kraken-open-eye.png') // 
 loadSprite('kraken-closed-eye', './images/sprites/kraken-closed-eye.png') //
+loadSprite('kaboom', './images/sprites/bag.png') //
 
 
 
@@ -363,7 +365,9 @@ scene('game', ({ level, score }) => {
   })
 
   function spawnKaboom(p) {
-    const obj = add([sprite('kaboom'), pos(p), 'kaboom'])
+    // TODO: see correct position
+    const bagPos = vec2(p.x + 100*(Math.abs(player.dir.x)),p.y + 100*(Math.abs(player.dir.y)))
+    const obj = add([sprite('kaboom'), pos(bagPos), 'kaboom'])
     wait(1, () => {
       destroy(obj)
     })
